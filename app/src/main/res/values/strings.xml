@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CycleCare</string>
+
+    //Headings
+
+    <string name="heading_one">Park Your Bike with Ease</string>
+    <string name="heading_two">QR Code</string>
+    <string name="heading_three">Locking Mechanism</string>
+
+    //Description
+
+    <string name="description1">CycleCare is your ultimate companion for securely parking your bike and ensuring peace of mind.</string>
+    <string name="description2">sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam</string>
+    <string name="description3">dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies integer quis</string>
+
+
 </resources>

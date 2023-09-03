@@ -6,6 +6,9 @@
     <color name="aquamarine">#61876E</color>
     <color name="royal_blue">#1C344D</color>
     <color name="black">#000000</color>
+
+    <color name="inactive">#D9D9D9</color>
+    <color name="active">#61876E</color>
 </resources>
 
 
