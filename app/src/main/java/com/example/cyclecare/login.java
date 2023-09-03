@@ -46,8 +46,8 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-       backBtn = findViewById(R.id.backBtn);
-       noAccount =  findViewById(R.id.noAccount);
+        backBtn = findViewById(R.id.backBtn);
+        noAccount =  findViewById(R.id.noAccount);
         mAuth = FirebaseAuth.getInstance();
         backBtn = findViewById(R.id.backBtn);
         noAccount =  findViewById(R.id.noAccount);
@@ -66,41 +66,45 @@ public class login extends AppCompatActivity {
                 password = String.valueOf(passwordtxt.getText());
 
 
-                if (TextUtils.isEmpty(email)) {
+                if (email.isEmpty()) {
+                    progressBar.setVisibility(View.GONE);
 //                    Toast.makeText(login.this,"Enter username",Toast.LENGTH_SHORT).show();
                     emailtxt.setError("Field is required");
+                    emailtxt.requestFocus();
                     return;
                 }
 
-                if (TextUtils.isEmpty(password)){
+                if (password.isEmpty()){
+                    progressBar.setVisibility(View.GONE);
 //                    Toast.makeText(login.this,"Enter email",Toast.LENGTH_SHORT).show();
                     passwordtxt.setError("Field is required");
+                    passwordtxt.requestFocus();
                     return;
                 }
+                else {
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
 
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(login.this, "Authentication success.",
+                                        Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                finish();
 
-                                if (task.isSuccessful()) {
-                                    progressBar.setVisibility(View.GONE);
-                                    Toast.makeText(login.this, "Authentication success.",
-                                            Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                                    finish();
+                            } else {
 
-                                } else {
+                                Toast.makeText(login.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
 
-                                    Toast.makeText(login.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-
-                                }
                             }
-                        });
+                        }
+                    });
+                }
+
             }
         });
-
 
 
 
