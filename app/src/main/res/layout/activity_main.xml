@@ -21,7 +21,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/aquamarine"
+        android:background="@color/pastel_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
         app:menu="@menu/bottom_nav"

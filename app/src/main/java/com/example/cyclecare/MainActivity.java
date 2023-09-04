@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
-                case R.id.map:
+                case R.id.notif:
                     replaceFragment(new MapFragment());
                     break;
                 case R.id.park:

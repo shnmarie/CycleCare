@@ -6,19 +6,19 @@
         android:iconTint="@color/white"
         android:icon="@drawable/home_icon"/>
 
-    <item android:id="@+id/map"
-        android:title="Map"
-        android:icon="@drawable/map_icon"/>
+    <item android:id="@+id/myBike"
+        android:title="My Bike"
+        android:icon="@drawable/bike_icon"/>
 
     <item android:id="@+id/park"
         android:title="Park"
         android:icon="@drawable/parking_icon"/>
 
-    <item android:id="@+id/myBike"
-        android:title="My Bike"
-        android:icon="@drawable/bike_icon"/>
+    <item android:id="@+id/notif"
+        android:title="Notifications"
+        android:icon="@drawable/notif_icon"/>
 
     <item android:id="@+id/profile"
-        android:title="Profile"
+        android:title="Me"
         android:icon="@drawable/profile_icon"/>
 </menu>
