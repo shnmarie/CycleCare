@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cyclecare.Model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -37,6 +38,10 @@ public class Signup extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
 
+    // creating a variable for
+    // our object class
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +57,8 @@ public class Signup extends AppCompatActivity {
         passwordtxt =findViewById(R.id.passwordtxt);
         regBtn = findViewById(R.id.regBtn);
         progressBar = findViewById(R.id.progressBar);
-
+        user = new User(); // initializing our object
+                            // class variable.
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,23 +159,15 @@ public class Signup extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-
                             progressBar.setVisibility(View.GONE);
-
-                            Toast.makeText(Signup.this, "Authentication success.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signup.this, "Signup successful.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), login.class));
                             finish();
-
                         }
-
                         else {
-
-                            Toast.makeText(Signup.this, "Authentication failed.",
+                            Toast.makeText(Signup.this, "Signup failed. Please try again.",
                                     Toast.LENGTH_SHORT).show();
-
                         }
-
                     }
                 });
             }
